@@ -97,9 +97,15 @@ img {
 .contenido-header {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: calc(60rem - 4rem);
     justify-content: space-between;
     padding: 3rem 0;
+}
+
+@media (min-width: 992px) {
+    .contenido-header {
+        height: 100vh;
+    }
 }
 
 .nombre-sitio {
@@ -236,18 +242,21 @@ img {
 
 /* Modelos */
 
-.modelo-basico {
+.modelo {
     display: grid;
     grid-template-rows: repeat(2, 1fr);
-    background-image: url('../img/modelo_basico.jpg');
     background-repeat: no-repeat;
     background-size: auto 50%;
     background-position: bottom center;
 }
 
-.contenido-modelo-basico {
+.contenido-modelo {
     background-color: var(--blanco);
     padding: 3rem;
+}
+
+.modelo-basico {
+    background-image: url('../img/modelo_basico.jpg');
 }
 
 @media (min-width: 992px) {
@@ -263,18 +272,14 @@ img {
     }
 }
 
-.modelo-premier {
-    display: grid;
-    grid-template-rows: repeat(2, 1fr);
-    background-image: url('../img/modelo_premier.jpg');
-    background-repeat: no-repeat;
-    background-position: bottom center;
-    background-size: auto 50%;
+@media (min-width: 768px) {
+    .contenido-modelo-basico {
+        padding: 3rem 2rem 3rem 0rem
+    }
 }
 
-.contenido-modelo-premier {
-    background-color: #FFF;
-    padding: 3rem;
+.modelo-premier {
+    background-image: url('../img/modelo_premier.jpg');
 }
 
 @media (min-width: 992px) {
@@ -287,4 +292,158 @@ img {
     .contenido-modelo-premier {
         grid-column: 3 / 5;
     }
+}
+
+@media (min-width: 768px) {
+    .contenido-modelo-premier {
+        padding: 3rem 0rem 3rem 2rem;
+    }
+}
+
+.modelo-elite {
+    background-image: url('../img/modelo_elite.jpg');
+}
+
+@media (min-width: 992px) {
+    .modelo-elite {
+        grid-template-columns: repeat(4, 1fr);
+        background-position: bottom right;
+        background-size: auto 80%;
+    }
+
+    .contenido-modelo-elite {
+        grid-column: 1 / 3;
+    }
+}
+
+@media (min-width: 768px) {
+    .contenido-modelo-elite {
+        padding: 3rem 2rem 3rem 0rem;
+    }
+}
+
+/* Galería */
+
+.galeria-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.galeria-list img {
+    object-fit: cover;
+    height: 100%;
+}
+
+.item-galeria:nth-child(2) {
+    grid-row: 1 / 3;
+    grid-column: 2 / 3;
+}
+
+.item-galeria:nth-child(3) {
+    grid-row: 3 / 5;
+    grid-column: 2 / 3;
+}
+
+.item-galeria:nth-child(6) {
+    grid-row: 2 / 4;
+    grid-column: 1 / 2;
+}
+
+@media (min-width: 768px) {
+    .galeria-list {
+        grid-template-columns: unset;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .item-galeria:nth-child(2) {
+        grid-row: 1 / 3;
+        grid-column: 3 / 4;
+    }
+
+    .item-galeria:nth-child(6) {
+        grid-row: 2 / 4;
+        grid-column: 1 / 2;
+    }
+
+    .item-galeria:nth-child(3) {
+        grid-row: 3 / 3;
+        grid-column: 2 / 3;
+    }
+
+    .item-galeria:nth-child(4) {
+        grid-row: 2 / 3;
+        grid-column: 2 / 3;
+    }
+}
+
+/* Footer */
+
+.footer {
+    background-image: url('../img/footer_bg.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    color: #fff;
+    height: 50vh;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+}
+
+@media (min-width: 768px) {
+    .footer .barra {
+        flex-direction: column;
+    }
+
+    .footer .contacto {
+        justify-items: center;
+        align-items: center;
+    }
+
+    .footer {
+        height: 30vh;
+    }
+
+    .footer .nombre-sitio {
+        font-size: 2rem;
+    }
+
+    .footer .contacto{
+        flex: 1;
+        width: 100%;
+    }
+
+    .footer .navegacion {
+        margin-top: 1rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .footer {
+        height: 45vh;
+    }
+
+    .footer .nombre-sitio {
+        font-size: 3rem;
+    }
+
+    .footer .contacto{
+        flex: 0.8;
+        width: 90%;
+    }
+}
+
+.derechos-reservados {
+    background-color: var(--negro);
+    color: var(--blanco);
+    width: 100%;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.derechos-reservados p {
+    margin: 0;
+    padding: 0.4rem;  
 }
